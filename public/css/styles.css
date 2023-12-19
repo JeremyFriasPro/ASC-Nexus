@@ -5,7 +5,9 @@
 	--dark2: #2f3234;
 	--dark3: #1c1e20;
 	--light1: #ffffff;
-	--light2: #555a5d;
+	--light2: #e1f4ff;
+
+	--accent1: #84c1ff;
 
 	--head1Size: 1.75rem;
 	--tabSize: 1rem;
@@ -47,6 +49,7 @@ body {
 
 #nav h1 {
 	font-size: var(--head1Size);
+	color: var(--light2);
 }
 
 #nav p {
@@ -84,5 +87,59 @@ body {
 }
 
 .options .open {
+	color: var(--dark1);
 	background: var(--light2);
+}
+
+.options .open:hover {
+	color: var(--dark1);
+	background: var(--light2);
+	box-shadow: 0px 0px 30px var(--light2);
+	transition: 0.75s;
+}
+
+#info {
+	margin-top: 3em;
+	line-height: 2;
+	width: 65ch;
+	color: var(--accent1);
+	border-left: 2px solid var(--accent1);
+	padding-left: 2em;
+}
+
+#form-section {
+	margin-top: 3em;
+}
+
+#form-section form {
+	display: flex;
+}
+
+.field {
+	display: flex;
+	flex-direction: column;
+	margin-right: 2em;
+}
+
+.field label {
+	font-size: 0.9rem;
+}
+
+.field input {
+	padding: 0.5em;
+	margin-top: 0.5em;
+	color: var(--light1);
+	font-size: 1.25rem;
+	border: none;
+	border-radius: var(--corners);
+	background: var(--dark2);
+}
+
+#name {
+	width: 320px;
+}
+
+#niche,
+#revenue {
+	width: 170px;
 }
