@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;500;700&display=swap");
 
 :root {
 	--dark1: #1f2122;
@@ -28,12 +28,35 @@ body {
 	height: 100vh;
 	color: var(--light1);
 	background: var(--dark1);
+	font-weight: 300;
 }
 
 @media (width >= 1200px) {
 	body {
 		padding: 6em 3em;
 	}
+}
+
+button {
+	border: none;
+	border-radius: var(--corners);
+	padding: 0.6rem 2rem;
+}
+
+select {
+	color: var(--light1);
+	background: var(--dark1);
+	border: 1px solid var(--light1);
+	border-radius: var(--corners);
+	font-size: 1.14rem;
+	padding: 0.5em;
+	margin-top: 0.5em;
+	font-weight: 300;
+}
+
+label > span {
+	color: gray;
+	font-size: 0.8rem;
 }
 
 #app {
@@ -111,8 +134,9 @@ body {
 	margin-top: 3em;
 }
 
-#form-section form {
+.row {
 	display: flex;
+	margin-bottom: 2em;
 }
 
 .field {
@@ -133,6 +157,7 @@ body {
 	border: none;
 	border-radius: var(--corners);
 	background: var(--dark2);
+	font-weight: 300;
 }
 
 #name {
@@ -142,4 +167,16 @@ body {
 #niche,
 #revenue {
 	width: 170px;
+}
+
+#finalize {
+	font-weight: 500;
+	font-size: 1.05rem;
+	background: var(--accent1);
+}
+
+#finalize:hover {
+	cursor: pointer;
+	box-shadow: 0px 0px 30px var(--accent1);
+	transition: 0.75s;
 }

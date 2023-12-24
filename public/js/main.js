@@ -28,9 +28,14 @@ const infoText = {
 
 // business section - form
 const formSection = document.getElementById("form-section");
+const bizForm = document.getElementById("biz-form");
 const name = document.getElementById("name");
 const niche = document.getElementById("niche");
 const revenue = document.getElementById("revenue");
+const email = document.getElementById("email");
+const phone = document.getElementById("phone");
+const bType = document.getElementById("b-type");
+const btnFinalize = document.getElementById("finalize");
 
 function switchTab(e) {
 	e.preventDefault();
@@ -65,4 +70,50 @@ function switchTab(e) {
 
 navList.forEach((listItem) => {
 	listItem.addEventListener("click", switchTab);
+});
+
+const bizInfo = {};
+
+const localStorage = window.localStorage;
+const saveItemsToStorage = () => {
+	bizInfo.name = name.value;
+	localStorage.setItem("name", name.value);
+
+	bizInfo.niche = niche.value;
+	localStorage.setItem("niche", niche.value);
+
+	bizInfo.revenue = revenue.value;
+	localStorage.setItem("revenue", `$${revenue.value}`);
+
+	bizInfo.email = email.value;
+	localStorage.setItem("email", email.value);
+
+	bizInfo.phone = phone.value;
+	localStorage.setItem("phone", phone.value);
+
+	bizInfo.businessType = bType.value;
+	localStorage.setItem("Business Type", bType.value);
+};
+
+const showBizInfo = () => {
+	const bizStatusSection = document.createElement("section");
+	bizStatusSection.id = "biz-status";
+
+	let timer = setInterval(lowerOpacity, 2500);
+	function lowerOpacity() {
+		formSection.style.opacity -= 0.05;
+		if (formSection.style.opacity == 0) {
+			formSection.remove();
+			clearInterval(timer);
+		}
+	}
+
+	formSection.remove();
+	appContainer.append(bizStatusSection);
+};
+
+bizForm.addEventListener("submit", (e) => {
+	e.preventDefault();
+	saveItemsToStorage();
+	showBizInfo();
 });
